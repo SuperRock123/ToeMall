@@ -94,7 +94,8 @@ namespace ToeMall.Middlewares
                 "/swagger/index.html",
                 "/api/products/list",
                 "/api/products/search",
-                "/api/products/detail"
+                "/api/products/detail",
+                "/api/category/all"
             };
 
             return skipPaths.Any(p => path.StartsWithSegments(p));

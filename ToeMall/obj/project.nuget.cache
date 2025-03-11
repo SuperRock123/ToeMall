@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8FNwgQzD7rw=",
+  "dgSpecHash": "X1odjWtg4EU=",
   "success": true,
-  "projectFilePath": "C:\\Temp\\csDemo\\ToeMall\\ToeMall.csproj",
+  "projectFilePath": "D:\\GitHub\\ToeMall\\ToeMall\\ToeMall.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\25789\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\25789\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

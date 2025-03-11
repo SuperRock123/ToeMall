@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Temp\\csDemo\\ToeMall\\ToeMall.csproj": {}
+    "D:\\GitHub\\ToeMall\\ToeMall\\ToeMall.csproj": {}
   },
   "projects": {
-    "C:\\Temp\\csDemo\\ToeMall\\ToeMall.csproj": {
+    "D:\\GitHub\\ToeMall\\ToeMall\\ToeMall.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Temp\\csDemo\\ToeMall\\ToeMall.csproj",
+        "projectUniqueName": "D:\\GitHub\\ToeMall\\ToeMall\\ToeMall.csproj",
         "projectName": "ToeMall",
-        "projectPath": "C:\\Temp\\csDemo\\ToeMall\\ToeMall.csproj",
+        "projectPath": "D:\\GitHub\\ToeMall\\ToeMall\\ToeMall.csproj",
         "packagesPath": "C:\\Users\\25789\\.nuget\\packages\\",
-        "outputPath": "C:\\Temp\\csDemo\\ToeMall\\obj\\",
+        "outputPath": "D:\\GitHub\\ToeMall\\ToeMall\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

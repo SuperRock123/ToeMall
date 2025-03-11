@@ -43,7 +43,7 @@ namespace ToeMall.Models
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         // 导航属性
-        public virtual User User { get; set; }
-        public virtual Product Product { get; set; }
+        public virtual User? User { get; set; }
+        public virtual Product? Product { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace ToeMall.Models
     {
         [Key]
         [MaxLength(255)]
-        public string TokenId { get; set; }
+        public string? TokenId { get; set; }
 
         [Required]
         public int UserId { get; set; }
@@ -18,7 +18,7 @@ namespace ToeMall.Models
         [Required]
         public DateTime ExpiryTime { get; set; }
 
-        [ForeignKey(nameof(UserId))]  // Ã÷È·Ö¸¶¨Íâ¼ü
-        public User User { get; set; }
+        [ForeignKey(nameof(UserId))]  // ï¿½ï¿½È·Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½
+        public User? User { get; set; }
     }
 }

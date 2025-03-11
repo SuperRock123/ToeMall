@@ -11,7 +11,7 @@ namespace ToeMall.Models
 
         [Required]
         [MaxLength(50)]
-        public string Username { get; set; }
+        public string? Username { get; set; }
 
         [Required]
         [MaxLength(100)]
@@ -19,7 +19,7 @@ namespace ToeMall.Models
 
         [Required]
         [MaxLength(255)]
-        public string PasswordHash { get; set; }
+        public string? PasswordHash { get; set; }
 
         [Required]
         [MaxLength(10)]

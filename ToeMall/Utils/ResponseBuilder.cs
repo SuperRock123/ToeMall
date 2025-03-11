@@ -12,21 +12,21 @@
         }
 
         // 设置状态码
-        public ResponseBuilder SetStatusCode(int statusCode)
+        public ResponseBuilder SetStatusCode(int? statusCode)
         {
             _response.StatusCode = statusCode;
             return this; // 返回当前对象，支持链式调用
         }
 
         // 设置消息
-        public ResponseBuilder SetMessage(string message)
+        public ResponseBuilder SetMessage(string? message)
         {
             _response.Message = message;
             return this;
         }
 
         // 设置数据
-        public ResponseBuilder SetData(object data)
+        public ResponseBuilder SetData(object? data)
         {
             _response.Data = data;
             return this;

@@ -9,7 +9,7 @@ import {
   Submenu, MenuItemGroup, MenuItem, Header, Dropdown,
   DropdownMenu, DropdownItem, Main, Table, TableColumn,
   Message, Footer, InfiniteScroll, Col, Card, Form, FormItem, Input, Dialog,
-  Row, InputNumber, Pagination, Avatar, Tooltip
+  Row, InputNumber, Pagination, Avatar, Tooltip, Select, Option, Image
 } from 'element-ui'
 
 Vue.config.productionTip = false
@@ -41,6 +41,9 @@ Vue.component(Pagination.name, Pagination)
 Vue.component(InputNumber.name, InputNumber)
 Vue.component(Avatar.name, Avatar)
 Vue.component(Tooltip.name, Tooltip)
+Vue.component(Select.name, Select)
+Vue.component(Option.name, Option)
+Vue.component(Image.name, Image)
 
 Vue.use(InfiniteScroll)
 

@@ -116,7 +116,7 @@ export function getProductDetail (productId) {
 //     }
 //   }
 // 创建商品（需要管理员权限）
-export function createProduct (name, description, price, stockQuantity, categoryId, picture) {
+export function createProduct (name, price, categoryId, stockQuantity = 0, picture = ' ', description = ' ') {
   return request.post('/Products/create', {
     name,
     description,
@@ -146,7 +146,7 @@ export function createProduct (name, description, price, stockQuantity, category
 //     }
 //   }
 // 更新商品（需要管理员权限）
-export function updateProduct (productId, name, description, price, stockQuantity, categoryId, picture) {
+export function updateProduct (productId, name, price, categoryId, stockQuantity = 0, picture = ' ', description = ' ') {
   return request.put(`/Products/update/${productId}`, {
     name,
     description,

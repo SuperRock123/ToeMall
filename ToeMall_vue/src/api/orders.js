@@ -222,3 +222,59 @@ export function updateOrderStatus (orderId, status) {
 //     "updatedAt": "2025-03-08T00:00:00Z"
 //   }
 // }
+/**
+ * 搜索订单
+ *
+ * @param {string} [productName] - 可选，商品名称关键词
+ * @param {string} [status] - 可选，订单状态 'Unpaid', 'Paid', 'Cancelled', 不传参数表示搜索所有状态
+ * @param {number} [page=1] - 可选，页码，默认为 1
+ * @param {number} [pageSize=20] - 可选，每页记录数，默认为 20
+ * @returns {Promise} - 返回包含搜索结果的响应
+ */
+export function searchOrders (productName, status, page = 1, pageSize = 20) {
+  return request.get('/Orders/search', {
+    params: {
+      productName,
+      status,
+      page,
+      pageSize
+    }
+  })
+}
+
+// 示例响应
+// {
+//   "statusCode": 200,
+//   "message": "搜索订单成功",
+//   "data": {
+//     "orders": [
+//       {
+//         "orderId": 1,
+//         "orderStatus": "Unpaid",
+//         "productName": "Product Name",
+//         "price": 100.00,
+//         "totalPrice": 200.00,
+//         "product": {
+//           "productId": 1,
+//           "name": "Product Name",
+//           "price": 100.00
+//         },
+//         "user": {
+//           "userId": 1,
+//           "username": "User Name"
+//         },
+//         "quantity": 2,
+//         "createdAt": "2025-03-08T00:00:00Z",
+//         "updatedAt": "2025-03-08T00:00:00Z"
+//       }
+//     ],
+//     "pagination": {
+//       "currentPage": 1,
+//       "pageSize": 20,
+//       "totalCount": 100,
+//       "totalPages": 5,
+//       "productName": "Product Name",
+//       "status": "Unpaid"
+//     }
+//   }
+// }

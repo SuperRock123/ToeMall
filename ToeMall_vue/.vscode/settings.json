@@ -1,0 +1,8 @@
+{
+  "editor.fontLigatures": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "eslint.format.enable": true
+}

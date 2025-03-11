@@ -153,13 +153,33 @@ namespace ToeMall.Controllers
                 query = query.Where(p => p.CategoryId == categoryId.Value);
             }
 
-            // 应用排序
-            query = sortBy?.ToLower() switch
+           // 应用排序
+            if (!string.IsNullOrEmpty(sortBy))
             {
-                "stock" => ascending == true ? query.OrderBy(p => p.StockQuantity) : query.OrderByDescending(p => p.StockQuantity),
-                "category" => ascending == true ? query.OrderBy(p => p.Category.Name) : query.OrderByDescending(p => p.Category.Name),
-                _ => ascending == true ? query.OrderBy(p => p.CreatedAt) : query.OrderByDescending(p => p.CreatedAt)
-            };
+                switch (sortBy.ToLower())
+                {
+                    case "stock":
+                        query = ascending == true 
+                            ? query.OrderBy(p => p.StockQuantity) 
+                            : query.OrderByDescending(p => p.StockQuantity);
+                        break;
+                    case "category":
+                        query = ascending == true 
+                            ? query.OrderBy(p => p.Category.Name) 
+                            : query.OrderByDescending(p => p.Category.Name);
+                        break;
+                    case "price":  // 增加对价格的排序支持
+                        query = ascending == true 
+                            ? query.OrderBy(p => p.Price) 
+                            : query.OrderByDescending(p => p.Price);
+                        break;
+                    default:
+                        query = ascending == true 
+                            ? query.OrderBy(p => p.CreatedAt) 
+                            : query.OrderByDescending(p => p.CreatedAt);
+                        break;
+                }
+            }
 
             // 计算总记录数
             var totalCount = await query.CountAsync();
@@ -260,7 +280,7 @@ namespace ToeMall.Controllers
                     .FirstOrDefaultAsync(p => p.ProductId == product.ProductId);
 
                 return new ResponseBuilder()
-                    .SetStatusCode(201)
+                    .SetStatusCode(200)
                     .SetMessage("商品创建成功")
                     .SetData(new
                     {

@@ -162,3 +162,33 @@ export function searchUsers (username, page = 1, pageSize = 20) {
 //     }
 //   }
 // }
+/**
+ * 管理员添加用户
+ * @ param {Object} user - 用户信息对象
+ * @ param {string} user.username - 用户名
+ * @ param {string} user.password - 密码
+ * @ param {string} [user.email] - 邮箱
+ * @ param {string} [user.role='user'] - 角色，默认为 'user'
+ * @ param {string} [user.avatar] - 头像
+ * @ returns {Promise} - 返回包含添加用户结果的响应
+ */
+export function addUserByAdmin (username, passwordHash, email, pointsBalance, role = 'user', avatar = '') {
+  return request.post('/Users/admin/adduser', {
+    username, passwordHash, email, pointsBalance, role, avatar
+  })
+}
+
+// 示例响应
+// {
+//   "statusCode": 200,
+//   "message": "用户添加成功",
+//   "data": {
+//     "userId": 1,
+//     "username": "newuser",
+//     "email": "newuser@example.com",
+//     "role": "user",
+//     "createdAt": "2025-03-11T00:00:00Z",
+//     "updatedAt": "2025-03-11T00:00:00Z",
+//     "avatar": "avatar_url"
+//   }
+// }
