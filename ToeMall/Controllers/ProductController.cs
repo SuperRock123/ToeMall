@@ -19,14 +19,14 @@ namespace ToeMall.Controllers
             _configuration = configuration;
         }
 
-        // GET: api/Products/list
+       // GET: api/Products/list
         // 获取商品列表，支持分页和排序
         [HttpGet("list")]
         public async Task<ActionResult<Response>> GetProducts(
             [FromQuery] int? page = 1,
             [FromQuery] int? pageSize = null,
             [FromQuery] int? categoryId = null,
-            [FromQuery] string? sortBy = "createdAt", // createdAt, stock, category
+            [FromQuery] string? sortBy = "createdAt", // createdAt, stock, category, price
             [FromQuery] bool? ascending = false)
         {
             // 从配置中获取分页参数
@@ -52,23 +52,32 @@ namespace ToeMall.Controllers
             // 应用排序
             query = sortBy?.ToLower() switch
             {
-                "stock" => ascending == true ? query.OrderBy(p => p.StockQuantity) : query.OrderByDescending(p => p.StockQuantity),
-                "category" => ascending == true ? query.OrderBy(p => p.Category.Name) : query.OrderByDescending(p => p.Category.Name),
-                _ => ascending == true ? query.OrderBy(p => p.CreatedAt) : query.OrderByDescending(p => p.CreatedAt)
+                "stock" => ascending == true 
+                            ? query.OrderBy(p => p.StockQuantity) 
+                            : query.OrderByDescending(p => p.StockQuantity),
+                "category" => ascending == true 
+                                ? query.OrderBy(p => p.Category.Name) 
+                                : query.OrderByDescending(p => p.Category.Name),
+                "price" => ascending == true 
+                            ? query.OrderBy(p => p.Price) 
+                            : query.OrderByDescending(p => p.Price),
+                _ => ascending == true 
+                        ? query.OrderBy(p => p.CreatedAt) 
+                        : query.OrderByDescending(p => p.CreatedAt)
             };
 
             // 计算总记录数
             var totalCount = await query.CountAsync();
             var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
 
-            // 获取分页数据
+            // 获取分页数据，修改字段映射为前端预期的名称
             var products = await query
                 .Skip((page.Value - 1) * pageSize.Value)
                 .Take(pageSize.Value)
                 .Select(p => new
                 {
                     p.ProductId,
-                    p.Name,
+                    productName = p.Name,  // 修改字段名称
                     p.Description,
                     p.Price,
                     p.StockQuantity,
@@ -108,6 +117,7 @@ namespace ToeMall.Controllers
                 .SetData(responseData)
                 .Build();
         }
+
 
         // GET: api/Products/search
         // 搜索商品，支持分页和排序
@@ -153,7 +163,7 @@ namespace ToeMall.Controllers
                 query = query.Where(p => p.CategoryId == categoryId.Value);
             }
 
-           // 应用排序
+            // 应用排序
             if (!string.IsNullOrEmpty(sortBy))
             {
                 switch (sortBy.ToLower())
@@ -185,14 +195,14 @@ namespace ToeMall.Controllers
             var totalCount = await query.CountAsync();
             var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
 
-            // 获取分页数据
+            // 获取分页数据，并修改字段映射
             var products = await query
                 .Skip((page.Value - 1) * pageSize.Value)
                 .Take(pageSize.Value)
                 .Select(p => new
                 {
                     p.ProductId,
-                    p.Name,
+                    productName = p.Name, // 修改字段名称
                     p.Description,
                     p.Price,
                     p.StockQuantity,
@@ -233,6 +243,7 @@ namespace ToeMall.Controllers
                 .SetData(responseData)
                 .Build();
         }
+
 
         // POST: api/Products/create
         // 添加商品（需要管理员权限）

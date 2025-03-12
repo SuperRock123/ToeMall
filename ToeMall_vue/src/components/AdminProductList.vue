@@ -25,16 +25,21 @@
       </el-col>
     </el-row>
     <el-table :data="products" style="width: 100%">
-      <el-table-column prop="name" label="商品名称"></el-table-column>
-      <el-table-column prop="price" label="价格"></el-table-column>
-      <el-table-column prop="stock" label="库存"></el-table-column>
-      <el-table-column label="操作">
-        <template slot-scope="scope">
-          <el-button size="mini" @click="editProduct(scope.row)">编辑</el-button>
-          <el-button size="mini" type="danger" @click="confirmDeleteProduct(scope.row)">删除</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+    <el-table-column prop="picture" label="图片">
+      <template slot-scope="scope">
+        <img :src="scope.row.picture" alt="商品图片" style="width: 50px; height: 50px;">
+      </template>
+    </el-table-column>
+    <el-table-column prop="productName" label="商品名称"></el-table-column>
+    <el-table-column prop="price" label="价格"></el-table-column>
+    <el-table-column prop="stockQuantity" label="库存"></el-table-column>
+    <el-table-column label="操作">
+      <template slot-scope="scope">
+        <el-button size="mini" @click="editProduct(scope.row)">编辑</el-button>
+        <el-button size="mini" type="danger" @click="confirmDeleteProduct(scope.row)">删除</el-button>
+      </template>
+    </el-table-column>
+  </el-table>
     <el-pagination
       background
       layout="prev, pager, next"

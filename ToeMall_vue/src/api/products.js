@@ -1,6 +1,7 @@
 import request from '@/utils/request.js'
 
 // 获取商品列表，支持分页和排序
+// sortBy 参数 stock, price, createdAt
 export function getProducts (page = 1, pageSize = 20, categoryId = null, sortBy = 'createdAt', ascending = false) {
   return request.get('/Products/list', {
     params: {
@@ -12,6 +13,7 @@ export function getProducts (page = 1, pageSize = 20, categoryId = null, sortBy 
     }
   })
 }
+
 // 响应示例
 // {
 //     "statusCode": 200,
@@ -44,7 +46,9 @@ export function getProducts (page = 1, pageSize = 20, categoryId = null, sortBy 
 //       }
 //     }
 //   }
+
 // 搜索商品，支持分页和排序
+// sortBy 参数 stock, price, createdAt
 export function searchProducts (keyword, page = 1, pageSize = 20, categoryId = null, sortBy = 'createdAt', ascending = false) {
   return request.get('/Products/search', {
     params: {
@@ -57,6 +61,7 @@ export function searchProducts (keyword, page = 1, pageSize = 20, categoryId = n
     }
   })
 }
+
 // 响应示例
 // {
 //     "statusCode": 200,

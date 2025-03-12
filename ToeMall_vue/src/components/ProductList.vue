@@ -6,7 +6,7 @@
           <el-card class="product-card" shadow="hover" :body-style="{ padding: '10px' }">
             <!-- 商品名称作为卡片头部 -->
             <div slot="header" class="card-header">
-              <span class="card-title">{{ product.name }}</span>
+              <span class="card-title">{{ product.productName }}</span>
             </div>
             <!-- 商品图片 -->
             <img :src="product.picture" class="image">

@@ -55,6 +55,7 @@
 
 <script>
 import { getUsers, searchUsers, addUserByAdmin, updateUser, deleteUser } from '@/api/users'
+import { removeToken } from '@/utils/CookieUtil'
 import UserForm from '@/components/UserForm.vue'
 
 export default {
@@ -81,11 +82,9 @@ export default {
       })
     },
     searchUsers () {
-      if (this.searchKeyword === '') {
-        this.fetchUsers()
-        return
-      }
-      searchUsers(this.searchKeyword, this.currentPage, this.pageSize).then(response => {
+      console.log('searchUsers', this.searchKeyword, this.searchRole, this.currentPage, this.pageSize)
+      searchUsers(this.searchKeyword, this.searchRole, null, null, this.currentPage, this.pageSize).then(response => {
+        console.log('searchUsers', response)
         this.users = response.data.users
         this.totalUsers = response.data.pagination.totalCount
       })
@@ -100,7 +99,14 @@ export default {
     },
     saveUser (user) {
       if (user.userId) {
-        updateUser(user.userId, user.username, user.email, user.avatar, user.role, user.pointsBalance, user.password).then(this.fetchUsers)
+        updateUser(user.userId, user.username, user.email, user.avatar, user.role, user.pointsBalance, user.password).then(response => {
+          if (response.data.redirect) {
+            removeToken()
+            this.$router.push('/login')
+          } else {
+            this.fetchUsers()
+          }
+        })
       } else {
         addUserByAdmin(user.username, user.password, user.email, user.pointsBalance, user.role, user.avatar).then(this.fetchUsers)
       }

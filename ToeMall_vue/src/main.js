@@ -9,7 +9,8 @@ import {
   Submenu, MenuItemGroup, MenuItem, Header, Dropdown,
   DropdownMenu, DropdownItem, Main, Table, TableColumn,
   Message, Footer, InfiniteScroll, Col, Card, Form, FormItem, Input, Dialog,
-  Row, InputNumber, Pagination, Avatar, Tooltip, Select, Option, Image
+  Row, InputNumber, Pagination, Avatar, Tooltip, Select, Option, Image,
+  Carousel, CarouselItem
 } from 'element-ui'
 
 Vue.config.productionTip = false
@@ -44,7 +45,8 @@ Vue.component(Tooltip.name, Tooltip)
 Vue.component(Select.name, Select)
 Vue.component(Option.name, Option)
 Vue.component(Image.name, Image)
-
+Vue.use(Carousel)
+Vue.use(CarouselItem)
 Vue.use(InfiniteScroll)
 
 Vue.prototype.$message = Message

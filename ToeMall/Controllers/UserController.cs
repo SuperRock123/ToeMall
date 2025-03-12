@@ -221,7 +221,6 @@ namespace ToeMall.Controllers
                     .SetData(null)
                     .Build();
             }
-
             // 4. 数据验证：检查用户名是否已被其他用户使用
             bool usernameExists = await _context.Users
                 .AnyAsync(u => u.Username == user.Username && u.UserId != user.UserId);
@@ -274,7 +273,13 @@ namespace ToeMall.Controllers
                     existingUser.UpdatedAt,
                     existingUser.Avatar
                 };
-
+                if(currentUser.UserId==user.UserId){
+                    return new ResponseBuilder()
+                    .SetStatusCode(200)
+                    .SetMessage("您更新了自己的信息，请重新登录")
+                    .SetData(new {updatedUserInfo,redirect=true})
+                    .Build();
+                }
                 return new ResponseBuilder()
                     .SetStatusCode(200)
                     .SetMessage("用户信息更新成功，请重新登录")
@@ -399,20 +404,24 @@ namespace ToeMall.Controllers
                 .SetData(userInfo)
                 .Build();
         }
-
-        // GET: api/Users/search
-        // /api/Users/search?username=test&page=1&pageSize=10
+        //搜索用户
+        //users/search
         [HttpGet("search")]
         public async Task<ActionResult<Response>> SearchUsers(
-            [FromQuery] string username,
+            [FromQuery] string? keyword = null,
+            [FromQuery] string? role = null,
+            [FromQuery] int? minPoints = null,
+            [FromQuery] int? maxPoints = null,
             [FromQuery] int? page = 1,
             [FromQuery] int? pageSize = null)
         {
-            if (string.IsNullOrWhiteSpace(username))
+            // 获取当前用户（经过中间件注入）
+            var currentUser = HttpContext.Items["User"] as User;
+            if (currentUser == null || currentUser.Role != "Admin")
             {
                 return new ResponseBuilder()
-                    .SetStatusCode(400)
-                    .SetMessage("搜索关键词不能为空")
+                    .SetStatusCode(403)
+                    .SetMessage("没有权限执行此操作")
                     .SetData(null)
                     .Build();
             }
@@ -427,8 +436,29 @@ namespace ToeMall.Controllers
             pageSize = Math.Min(Math.Max(1, pageSize.Value), maxPageSize);
 
             // 构建查询
-            var query = _context.Users
-                .Where(u => u.Username.Contains(username));
+            var query = _context.Users.AsQueryable();
+
+            // 应用关键词过滤
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                query = query.Where(u => u.Username.Contains(keyword) || u.Email.Contains(keyword));
+            }
+
+            // 应用角色过滤
+            if (!string.IsNullOrWhiteSpace(role))
+            {
+                query = query.Where(u => u.Role == role);
+            }
+
+            // 应用积分范围过滤
+            if (minPoints.HasValue)
+            {
+                query = query.Where(u => u.PointsBalance >= minPoints.Value);
+            }
+            if (maxPoints.HasValue)
+            {
+                query = query.Where(u => u.PointsBalance <= maxPoints.Value);
+            }
 
             // 计算总记录数
             var totalCount = await query.CountAsync();
@@ -459,7 +489,10 @@ namespace ToeMall.Controllers
                 PageSize = pageSize,
                 TotalCount = totalCount,
                 TotalPages = totalPages,
-                SearchTerm = username
+                Keyword = keyword,
+                Role = role,
+                MinPoints = minPoints,
+                MaxPoints = maxPoints
             };
 
             // 构建响应数据
@@ -475,54 +508,6 @@ namespace ToeMall.Controllers
                 .SetData(responseData)
                 .Build();
         }
-        [HttpPost("admin/adduser")]
-        public async Task<ActionResult<Response>> AddUserByAdmin([FromBody] User user)
-        {
-            // 获取当前用户（管理员）
-            var currentUser = HttpContext.Items["User"] as User;
-            if (currentUser == null || currentUser.Role != "Admin")
-            {
-                return new ResponseBuilder()
-                    .SetStatusCode(403)
-                    .SetMessage("没有权限执行此操作")
-                    .SetData(null)
-                    .Build();
-            }
-
-            // 检查用户名是否已存在
-            if (UserExists(user.Username))
-            {
-                return new ResponseBuilder()
-                    .SetStatusCode(400)
-                    .SetMessage("用户名已经存在")
-                    .SetData(null)
-                    .Build();
-            }
-
-            // 设置默认角色和密码哈希
-            user.UserId = 0; // 确保 UserId 自增
-            user.Role = user.Role ?? "user"; // 如果未指定角色，默认为 "user"
-            user.PasswordHash = HashEncoding.ComputeHash(user.PasswordHash);
-
-            // 添加用户到数据库
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
-            return new ResponseBuilder()
-                .SetStatusCode(200)
-                .SetMessage("用户添加成功")
-                .SetData(new
-                {
-                    user.UserId,
-                    user.Username,
-                    user.Email,
-                    user.Role,
-                    user.CreatedAt,
-                    user.UpdatedAt,
-                    user.Avatar
-                })
-                .Build();
-        }
         private bool UserExists(int id)
         {
             return _context.Users.Any(e => e.UserId == id);
@@ -531,6 +516,7 @@ namespace ToeMall.Controllers
         {
             return _context.Users.Any(e => e.Username == username);
         }
+        
     }
 
     
