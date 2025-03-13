@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ToeMall")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d2783ffad036cba3aed9b582f750f300b671c7e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fb8dfd44cfe142f5f825908ac58822163e7e759")]
 [assembly: System.Reflection.AssemblyProductAttribute("ToeMall")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ToeMall")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

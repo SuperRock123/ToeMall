@@ -2,7 +2,7 @@
   "editor.fontLigatures": false,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "eslint.format.enable": true
 }
