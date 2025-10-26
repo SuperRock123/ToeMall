@@ -4,6 +4,31 @@
 
 ToeMall is a complete e-commerce website system designed with a front-end and back-end separated architecture, providing core e-commerce functions such as product browsing, searching, shopping cart, order management, and user authentication.
 
+### System Screenshots
+
+#### Homepage
+![Homepage 1](images/home-1.png)
+![Homepage 2](images/home-2.png)
+
+#### Shopping Cart
+![Shopping Cart](images/cart-list.png)
+
+#### Order Pages
+![Order List](images/order-list.png)
+![Order Details](images/order-detail.png)
+
+#### Search Function
+![Search Results](images/search-1.png)
+
+#### Product Categories
+![Product Categories](images/home-goodsInCategory.png)
+
+#### Admin Interface
+![Admin Dashboard](images/admin-dashboard.png)
+![Product Management](images/admin-goods-manegement.png)
+![Order Management](images/admin-order-manegement.png)
+![User Management](images/admin-user-manegement.png)
+
 ## Technical Architecture
 
 ### Front-end Technology Stack
