@@ -1,76 +1,76 @@
-# ToeMall 电商系统
+# ToeMall E-commerce System
 
-## 项目简介
-ToeMall 是一个完整的电商网站系统，采用前后端分离架构设计，提供商品浏览、搜索、购物车、订单管理、用户认证等核心电商功能。
+## Project Introduction
+ToeMall is a complete e-commerce website system designed with a front-end and back-end separated architecture, providing core e-commerce functions such as product browsing, searching, shopping cart, order management, and user authentication.
 
-## 技术架构
+## Technical Architecture
 
-### 前端技术栈
-- **框架**: Vue.js 2.6.x
-- **路由**: Vue Router 3.5.x
-- **状态管理**: Vuex 3.6.x
-- **UI组件库**: Element UI 2.15.x
-- **HTTP请求**: Axios 1.8.x
-- **工具库**: js-cookie 3.0.x
-- **构建工具**: Vue CLI
+### Front-end Technology Stack
+- **Framework**: Vue.js 2.6.x
+- **Routing**: Vue Router 3.5.x
+- **State Management**: Vuex 3.6.x
+- **UI Component Library**: Element UI 2.15.x
+- **HTTP Requests**: Axios 1.8.x
+- **Utility Library**: js-cookie 3.0.x
+- **Build Tool**: Vue CLI
 
-### 后端技术栈
-- **框架**: ASP.NET Core
+### Back-end Technology Stack
+- **Framework**: ASP.NET Core
 - **ORM**: Entity Framework Core
-- **数据库**: SQL Server
-- **API设计**: RESTful API
+- **Database**: SQL Server
+- **API Design**: RESTful API
 
-## 系统功能模块
+## System Function Modules
 
-### 1. 用户认证与管理
-- 用户注册、登录功能
-- JWT Token身份验证机制
-- 用户信息管理（含积分系统）
-- 管理员权限控制
+### 1. User Authentication and Management
+- User registration and login functionality
+- JWT Token authentication mechanism
+- User information management (including points system)
+- Administrator permission control
 
-### 2. 商品管理
-- 商品列表展示，支持分页、排序和筛选
-- 商品详情查看
-- 商品搜索功能
-- 商品分类浏览
+### 2. Product Management
+- Product list display with pagination, sorting, and filtering
+- Product details view
+- Product search functionality
+- Product category browsing
 
-### 3. 分类管理
-- 分类的增删改查（管理员功能）
-- 商品按分类过滤
+### 3. Category Management
+- Category CRUD operations (administrator functionality)
+- Product filtering by category
 
-### 4. 购物车功能
-- 添加/删除购物车商品
-- 修改购物车商品数量
-- 购物车结算
+### 4. Shopping Cart Functionality
+- Add/remove shopping cart items
+- Modify shopping cart item quantities
+- Shopping cart checkout
 
-### 5. 订单管理
-- 订单创建与查询
-- 订单状态跟踪
+### 5. Order Management
+- Order creation and querying
+- Order status tracking
 
-### 6. 统计分析
-- 销售数据统计
+### 6. Statistical Analysis
+- Sales data statistics
 
-## 部署流程
+## Deployment Process
 
-### 前置条件
-- 安装 .NET SDK 6.0 或更高版本
-- 安装 Node.js 14.x 或更高版本
-- 安装 SQL Server 数据库
-- 安装 Git
+### Prerequisites
+- Install .NET SDK 6.0 or higher
+- Install Node.js 14.x or higher
+- Install SQL Server database
+- Install Git
 
-### 1. 克隆代码库
+### 1. Clone the Code Repository
 
 ```bash
-# 克隆项目代码
+# Clone project code
 git clone https://github.com/yourusername/ToeMall.git
 cd ToeMall
 ```
 
-### 2. 后端部署
+### 2. Back-end Deployment
 
-#### 2.1 配置数据库连接
+#### 2.1 Configure Database Connection
 
-修改 `ToeMall/appsettings.json` 文件，配置数据库连接字符串：
+Modify the `ToeMall/appsettings.json` file to configure the database connection string:
 
 ```json
 {
@@ -86,93 +86,93 @@ cd ToeMall
 }
 ```
 
-#### 2.2 初始化数据库
+#### 2.2 Initialize Database
 
-使用项目提供的数据库备份文件 `toemall_backup.sql` 恢复数据库：
+Restore the database using the provided database backup file `toemall_backup.sql`:
 
 ```bash
-# 使用 SQL Server Management Studio 或命令行恢复数据库
-# 命令行示例:
+# Use SQL Server Management Studio or command line to restore the database
+# Command line example:
 sqlcmd -S your_server -U your_username -P your_password -Q "RESTORE DATABASE ToeMall FROM DISK='d:\\GitHub\\ToeMall\\toemall_backup.sql' WITH REPLACE"
 ```
 
-或者使用 Entity Framework Core 迁移：
+Or use Entity Framework Core migrations:
 
 ```bash
 cd ToeMall
-# 添加迁移（如果需要）
+# Add migration (if needed)
 dotnet ef migrations add InitialCreate
-# 应用迁移
+# Apply migration
 dotnet ef database update
 ```
 
-#### 2.3 启动后端服务
+#### 2.3 Start Back-end Service
 
 ```bash
 cd ToeMall
-# 构建项目
+# Build the project
 dotnet build
-# 运行项目
+# Run the project
 dotnet run
 ```
 
-后端服务默认运行在 `http://localhost:5000` 和 `https://localhost:5001`。
+The back-end service runs by default at `http://localhost:5000` and `https://localhost:5001`.
 
-### 3. 前端部署
+### 3. Front-end Deployment
 
-#### 3.1 安装依赖
+#### 3.1 Install Dependencies
 
 ```bash
 cd ToeMall_vue
-# 安装 npm 依赖
+# Install npm dependencies
 npm install
 ```
 
-#### 3.2 配置API地址
+#### 3.2 Configure API Address
 
-修改 `ToeMall_vue/src/utils/request.js` 文件，设置API基础URL：
+Modify the `ToeMall_vue/src/utils/request.js` file to set the API base URL:
 
 ```javascript
-// request.js 中的 baseURL 配置
+// baseURL configuration in request.js
 const service = axios.create({
-  baseURL: 'http://localhost:5000/api', // 后端API基础地址
+  baseURL: 'http://localhost:5000/api', // Backend API base address
   timeout: 10000
 })
 ```
 
-#### 3.3 开发环境运行
+#### 3.3 Run in Development Environment
 
 ```bash
-# 启动开发服务器
+# Start development server
 npm run serve
 ```
 
-开发服务器默认运行在 `http://localhost:8080`。
+The development server runs by default at `http://localhost:8080`.
 
-#### 3.4 生产环境构建
+#### 3.4 Build for Production Environment
 
 ```bash
-# 构建生产环境代码
+# Build production-ready code
 npm run build
 ```
 
-构建后的文件将生成在 `dist` 目录中，可以部署到任何静态文件服务器。
+The built files will be generated in the `dist` directory and can be deployed to any static file server.
 
-### 4. 生产环境部署
+### 4. Production Environment Deployment
 
-#### 4.1 部署后端
+#### 4.1 Deploy Back-end
 
-使用 IIS 部署 .NET Core 应用：
+Deploy .NET Core application using IIS:
 
-1. 安装 .NET Core Hosting Bundle
-2. 在 IIS 中创建网站，指向 `ToeMall/bin/Release/net6.0/publish` 目录
-3. 配置应用程序池为无托管代码
-4. 设置环境变量或修改 appsettings.Production.json
+1. Install .NET Core Hosting Bundle
+2. Create a website in IIS pointing to the `ToeMall/bin/Release/net6.0/publish` directory
+3. Configure the application pool to use No Managed Code
+4. Set environment variables or modify appsettings.Production.json
 
-#### 4.2 部署前端
+#### 4.2 Deploy Front-end
 
-1. 将构建好的 `dist` 目录内容复制到 Web 服务器
-2. 配置 Nginx/Apache 等 Web 服务器：
+1. Copy the contents of the built `dist` directory to the web server
+2. Configure Nginx/Apache web server:
 
 ```nginx
 server {
@@ -198,85 +198,85 @@ server {
 }
 ```
 
-### 5. 环境变量配置
+### 5. Environment Variable Configuration
 
-#### 后端环境变量
-- `ConnectionStrings__DefaultConnection`: 数据库连接字符串
-- `CustomSettings__pagination__defaultPageSize`: 默认分页大小
-- `CustomSettings__pagination__maxPageSize`: 最大分页大小
-- `ASPNETCORE_ENVIRONMENT`: 环境变量（Development/Staging/Production）
+#### Back-end Environment Variables
+- `ConnectionStrings__DefaultConnection`: Database connection string
+- `CustomSettings__pagination__defaultPageSize`: Default pagination size
+- `CustomSettings__pagination__maxPageSize`: Maximum pagination size
+- `ASPNETCORE_ENVIRONMENT`: Environment variable (Development/Staging/Production)
 
-#### 前端环境变量
-在 `.env` 文件中配置：
+#### Front-end Environment Variables
+Configure in `.env` file:
 
 ```
-# 开发环境
+# Development environment
 VUE_APP_API_BASE_URL=http://localhost:5000/api
 
-# 生产环境 (.env.production)
+# Production environment (.env.production)
 VUE_APP_API_BASE_URL=http://api.example.com
 ```
 
-### 6. 常见问题排查
+### 6. Troubleshooting Common Issues
 
-1. **数据库连接失败**
-   - 检查连接字符串是否正确
-   - 确认数据库服务是否正在运行
-   - 验证数据库用户权限
+1. **Database Connection Failure**
+   - Check if the connection string is correct
+   - Confirm if the database service is running
+   - Verify database user permissions
 
-2. **API调用失败**
-   - 检查前后端地址是否配置正确
-   - 确认CORS设置是否允许跨域请求
-   - 查看网络请求日志和错误信息
+2. **API Call Failure**
+   - Check if the front-end and back-end addresses are configured correctly
+   - Confirm if CORS settings allow cross-origin requests
+   - Check network request logs and error messages
 
-3. **Token认证问题**
-   - 检查Token是否正确生成和传递
-   - 确认Token验证中间件配置
-   - 检查Token过期时间设置
+3. **Token Authentication Issues**
+   - Check if tokens are correctly generated and passed
+   - Confirm token validation middleware configuration
+   - Check token expiration time settings
 
-4. **前端页面白屏**
-   - 确认构建文件是否正确
-   - 检查路由配置
-   - 查看浏览器控制台错误
+4. **Front-end Blank Page**
+   - Confirm if build files are correct
+   - Check routing configuration
+   - View browser console errors
 
-## 项目结构
+## Project Structure
 
-### 前端结构
+### Front-end Structure
 ```
 ToeMall_vue/
-├── public/             # 静态资源
-├── src/                # 源代码
-│   ├── api/            # API接口封装
-│   ├── assets/         # 图片、图标等资源
-│   ├── components/     # 公共组件
-│   ├── views/          # 页面组件
-│   ├── router/         # 路由配置
-│   ├── store/          # Vuex状态管理
-│   ├── utils/          # 工具函数
-│   ├── App.vue         # 根组件
-│   └── main.js         # 入口文件
-├── .env                # 环境变量
-├── babel.config.js     # Babel配置
-├── package.json        # 项目依赖
-├── vue.config.js       # Vue CLI配置
-└── README.md           # 前端说明文档
+├── public/             # Static resources
+├── src/                # Source code
+│   ├── api/            # API interface encapsulation
+│   ├── assets/         # Images, icons and other resources
+│   ├── components/     # Common components
+│   ├── views/          # Page components
+│   ├── router/         # Routing configuration
+│   ├── store/          # Vuex state management
+│   ├── utils/          # Utility functions
+│   ├── App.vue         # Root component
+│   └── main.js         # Entry file
+├── .env                # Environment variables
+├── babel.config.js     # Babel configuration
+├── package.json        # Project dependencies
+├── vue.config.js       # Vue CLI configuration
+└── README.md           # Front-end documentation
 ```
 
-### 后端结构
+### Back-end Structure
 ```
 ToeMall/
-├── Controllers/        # API控制器
-├── Data/               # 数据库上下文
-├── Middlewares/        # 中间件
-├── Models/             # 数据模型
-├── Utils/              # 工具类
-├── appsettings.json    # 应用配置
-├── Program.cs          # 程序入口
-└── ToeMall.csproj      # 项目文件
+├── Controllers/        # API controllers
+├── Data/               # Database context
+├── Middlewares/        # Middleware
+├── Models/             # Data models
+├── Utils/              # Utility classes
+├── appsettings.json    # Application configuration
+├── Program.cs          # Program entry
+└── ToeMall.csproj      # Project file
 ```
 
-## 许可证
+## License
 MIT License
 
-## 联系方式
-如有问题，请提交Issue或联系项目维护者。
+## Contact
+For any questions, please submit an Issue or contact the project maintainers.
