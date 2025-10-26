@@ -95,10 +95,11 @@ namespace ToeMall.Middlewares
                 "/api/products/list",
                 "/api/products/search",
                 "/api/products/detail",
-                "/api/category/all"
+                "/api/category/all",
+                "/swagger"
             };
 
             return skipPaths.Any(p => path.StartsWithSegments(p));
         }
     }
-} 
+}

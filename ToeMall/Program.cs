@@ -5,7 +5,10 @@ using ToeMall.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5227); // 👈 监听本机所有网卡
+});
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -23,7 +26,8 @@ builder.Services.AddDbContext<MyDbContext>(options =>
         {
             options.AddPolicy("AllowSpecificOrigin",
                 builder => builder
-                    .WithOrigins("http://localhost:8080") // 允许的来源
+                    //.WithOrigins("http://localhost:8080") // 允许的来源
+                    .AllowAnyOrigin()
                     .AllowAnyHeader()
                     .AllowAnyMethod());
         });

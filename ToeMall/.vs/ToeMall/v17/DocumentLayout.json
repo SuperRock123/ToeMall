@@ -1,17 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Temp\\csDemo\\ToeMall\\",
+  "WorkspaceRootPath": "D:\\GitHub\\ToeMall\\ToeMall\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5CBA2812-058E-4DB4-AA54-81D6D45DD4CE}|ToeMall.csproj|c:\\temp\\csdemo\\toemall\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5CBA2812-058E-4DB4-AA54-81D6D45DD4CE}|ToeMall.csproj|d:\\github\\toemall\\toemall\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5CBA2812-058E-4DB4-AA54-81D6D45DD4CE}|ToeMall.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5CBA2812-058E-4DB4-AA54-81D6D45DD4CE}|ToeMall.csproj|c:\\temp\\csdemo\\toemall\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5CBA2812-058E-4DB4-AA54-81D6D45DD4CE}|ToeMall.csproj|d:\\github\\toemall\\toemall\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CBA2812-058E-4DB4-AA54-81D6D45DD4CE}|ToeMall.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CBA2812-058E-4DB4-AA54-81D6D45DD4CE}|ToeMall.csproj|d:\\github\\toemall\\toemall\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5CBA2812-058E-4DB4-AA54-81D6D45DD4CE}|ToeMall.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5CBA2812-058E-4DB4-AA54-81D6D45DD4CE}|ToeMall.csproj|c:\\temp\\csdemo\\toemall\\middlewares\\tokenvalidationmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5CBA2812-058E-4DB4-AA54-81D6D45DD4CE}|ToeMall.csproj|d:\\github\\toemall\\toemall\\middlewares\\tokenvalidationmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5CBA2812-058E-4DB4-AA54-81D6D45DD4CE}|ToeMall.csproj|solutionrelative:middlewares\\tokenvalidationmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,43 +26,55 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\GitHub\\ToeMall\\ToeMall\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
+              "ToolTip": "D:\\GitHub\\ToeMall\\ToeMall\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Controllers\\ProductController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T01:15:24.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "TokenValidationMiddleware.cs",
-              "DocumentMoniker": "C:\\Temp\\csDemo\\ToeMall\\Middlewares\\TokenValidationMiddleware.cs",
+              "DocumentMoniker": "D:\\GitHub\\ToeMall\\ToeMall\\Middlewares\\TokenValidationMiddleware.cs",
               "RelativeDocumentMoniker": "Middlewares\\TokenValidationMiddleware.cs",
-              "ToolTip": "C:\\Temp\\csDemo\\ToeMall\\Middlewares\\TokenValidationMiddleware.cs",
+              "ToolTip": "D:\\GitHub\\ToeMall\\ToeMall\\Middlewares\\TokenValidationMiddleware.cs",
               "RelativeToolTip": "Middlewares\\TokenValidationMiddleware.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAIwDUAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T06:37:34.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T06:37:34.449Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Temp\\csDemo\\ToeMall\\Program.cs",
+              "DocumentMoniker": "D:\\GitHub\\ToeMall\\ToeMall\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Temp\\csDemo\\ToeMall\\Program.cs",
+              "ToolTip": "D:\\GitHub\\ToeMall\\ToeMall\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAhwBoAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-06T01:45:56.638Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Temp\\csDemo\\ToeMall\\Controllers\\UserController.cs",
+              "DocumentMoniker": "D:\\GitHub\\ToeMall\\ToeMall\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "C:\\Temp\\csDemo\\ToeMall\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\GitHub\\ToeMall\\ToeMall\\Controllers\\UserController.cs",
               "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAMwAAAAAAAAAAAAewOkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAewNoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-04T08:10:53.073Z",
               "EditorCaption": ""

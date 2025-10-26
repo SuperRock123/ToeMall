@@ -6,6 +6,7 @@ let loadingInstance = null // 存储 loading 实例
 
 const instance = axios.create({
   baseURL: 'http://localhost:5227/api',
+  // baseURL: 'http://10.70.61.97:5227/api',
   timeout: 5000
 })
 
