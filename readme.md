@@ -1,11 +1,13 @@
 # ToeMall E-commerce System
 
 ## Project Introduction
+
 ToeMall is a complete e-commerce website system designed with a front-end and back-end separated architecture, providing core e-commerce functions such as product browsing, searching, shopping cart, order management, and user authentication.
 
 ## Technical Architecture
 
 ### Front-end Technology Stack
+
 - **Framework**: Vue.js 2.6.x
 - **Routing**: Vue Router 3.5.x
 - **State Management**: Vuex 3.6.x
@@ -15,6 +17,7 @@ ToeMall is a complete e-commerce website system designed with a front-end and ba
 - **Build Tool**: Vue CLI
 
 ### Back-end Technology Stack
+
 - **Framework**: ASP.NET Core
 - **ORM**: Entity Framework Core
 - **Database**: SQL Server
@@ -23,36 +26,43 @@ ToeMall is a complete e-commerce website system designed with a front-end and ba
 ## System Function Modules
 
 ### 1. User Authentication and Management
+
 - User registration and login functionality
 - JWT Token authentication mechanism
 - User information management (including points system)
 - Administrator permission control
 
 ### 2. Product Management
+
 - Product list display with pagination, sorting, and filtering
 - Product details view
 - Product search functionality
 - Product category browsing
 
 ### 3. Category Management
+
 - Category CRUD operations (administrator functionality)
 - Product filtering by category
 
 ### 4. Shopping Cart Functionality
+
 - Add/remove shopping cart items
 - Modify shopping cart item quantities
 - Shopping cart checkout
 
 ### 5. Order Management
+
 - Order creation and querying
 - Order status tracking
 
 ### 6. Statistical Analysis
+
 - Sales data statistics
 
 ## Deployment Process
 
 ### Prerequisites
+
 - Install .NET SDK 6.0 or higher
 - Install Node.js 14.x or higher
 - Install SQL Server database
@@ -201,12 +211,14 @@ server {
 ### 5. Environment Variable Configuration
 
 #### Back-end Environment Variables
+
 - `ConnectionStrings__DefaultConnection`: Database connection string
 - `CustomSettings__pagination__defaultPageSize`: Default pagination size
 - `CustomSettings__pagination__maxPageSize`: Maximum pagination size
 - `ASPNETCORE_ENVIRONMENT`: Environment variable (Development/Staging/Production)
 
 #### Front-end Environment Variables
+
 Configure in `.env` file:
 
 ```
@@ -220,21 +232,25 @@ VUE_APP_API_BASE_URL=http://api.example.com
 ### 6. Troubleshooting Common Issues
 
 1. **Database Connection Failure**
+   
    - Check if the connection string is correct
    - Confirm if the database service is running
    - Verify database user permissions
 
 2. **API Call Failure**
+   
    - Check if the front-end and back-end addresses are configured correctly
    - Confirm if CORS settings allow cross-origin requests
    - Check network request logs and error messages
 
 3. **Token Authentication Issues**
+   
    - Check if tokens are correctly generated and passed
    - Confirm token validation middleware configuration
    - Check token expiration time settings
 
 4. **Front-end Blank Page**
+   
    - Confirm if build files are correct
    - Check routing configuration
    - View browser console errors
@@ -242,6 +258,7 @@ VUE_APP_API_BASE_URL=http://api.example.com
 ## Project Structure
 
 ### Front-end Structure
+
 ```
 ToeMall_vue/
 ├── public/             # Static resources
@@ -263,6 +280,7 @@ ToeMall_vue/
 ```
 
 ### Back-end Structure
+
 ```
 ToeMall/
 ├── Controllers/        # API controllers
@@ -276,7 +294,9 @@ ToeMall/
 ```
 
 ## License
+
 MIT License
 
 ## Contact
+
 For any questions, please submit an Issue or contact the project maintainers.

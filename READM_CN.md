@@ -3,6 +3,31 @@
 ## 项目简介
 ToeMall 是一个完整的电商网站系统，采用前后端分离架构设计，提供商品浏览、搜索、购物车、订单管理、用户认证等核心电商功能。
 
+### 系统截图
+
+#### 首页展示
+![首页1](images/home-1.png)
+![首页2](images/home-2.png)
+
+#### 购物车页面
+![购物车](images/cart-list.png)
+
+#### 订单页面
+![订单列表](images/order-list.png)
+![订单详情](images/order-detail.png)
+
+#### 搜索功能
+![搜索结果](images/search-1.png)
+
+#### 商品分类
+![商品分类](images/home-goodsInCategory.png)
+
+#### 管理员界面
+![管理员仪表盘](images/admin-dashboard.png)
+![商品管理](images/admin-goods-manegement.png)
+![订单管理](images/admin-order-manegement.png)
+![用户管理](images/admin-user-manegement.png)
+
 ## 技术架构
 
 ### 前端技术栈
